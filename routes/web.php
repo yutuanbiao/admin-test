@@ -21,7 +21,9 @@ Route::get('/', [Customer::class, "list"]);
 
 // 登录处理路由
 Route::post("auth", [\App\Http\Controllers\Login::class, "auth"]);
-
+// 登录路由
+Route::post('/auth/email', [AuthController::class, 'emailLogin']);
+Route::post('/auth/send-code', [AuthController::class, 'sendEmailCode']);
 
 Route::get("list", [Customer::class, "list"]);
 // 添加表单
