@@ -192,7 +192,7 @@
         <div class="footer-links">
 {{--            <a href="/forgot-password">忘记密码</a>--}}
 {{--            <span>|</span>--}}
-{{--            <a href="/register">注册账号</a>--}}
+            <a href="/login/email">邮箱登入</a>
         </div>
     </form>
 </div>

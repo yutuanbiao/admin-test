@@ -17,3 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+Route::get('/edit/{id}', [\App\Http\Controllers\Customer::class, 'edit']);
+Route::put('/edit/{id}', [\App\Http\Controllers\Customer::class, 'edit']);

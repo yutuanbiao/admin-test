@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,8 +23,9 @@ Route::get('/', [Customer::class, "list"]);
 // 登录处理路由
 Route::post("auth", [\App\Http\Controllers\Login::class, "auth"]);
 // 登录路由
-Route::post('/auth/email', [AuthController::class, 'emailLogin']);
-Route::post('/auth/send-code', [AuthController::class, 'sendEmailCode']);
+Route::get('/login/email', [LoginController::class, 'showEmailLoginForm'])->name('login.email');
+Route::post('/login/send-code', [LoginController::class, 'sendVerificationCode'])->name('login.send-code');
+Route::post('/login/verify-code', [LoginController::class, 'verifyCodeLogin'])->name('login.verify-code');
 
 Route::get("list", [Customer::class, "list"]);
 // 添加表单
@@ -34,6 +36,8 @@ Route::delete("del/{id}", [Customer::class, "del"]);
 
 // 登录表单路由
 Route::view("login", "login/index");
+Route::view("login/email", "login/email");
+
 
 
 

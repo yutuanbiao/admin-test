@@ -78,6 +78,12 @@
     function clearInput() {
         // 通过 ID 获取输入框元素并清空值
         document.getElementById('nameInput').value = '';
+        // 创建 URL 对象并清空参数
+        const url = new URL(window.location.href);
+        url.search = ''; // 移除所有查询参数
+
+        // 强制页面以清理后的 URL 重新加载
+        window.location.href = url.href;
     }
 </script>
 
